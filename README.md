@@ -6,7 +6,7 @@ This GitHub repo accompanies a [blog post]() which describes the tooling ecosyst
 
 ## Rust installation
 
-Rust is installed using the `rustup` tool which can be found [here](https://www.rust-lang.org/tools/install). `rustup update` installs the Rust compiler (rustc), the package manager (cargo), clippy (the linter), rust-docs, and rustfmt.
+Rust is installed using the `rustup` tool which can be found [here](https://www.rust-lang.org/tools/install). `rustup update` installs the Rust compiler (`rustc`), the package manager (`cargo`), `clippy` (the linter), `rust-docs`, and `rustfmt`.
 
 
 ## Rust Build System and Package Management
@@ -18,7 +18,7 @@ A Rust package is configured using the `cargo.toml` file which has a dependencie
 
 ## Virtual Environments
 
-In Rust the idea of a virtual environment, as used in Python, is meaningless. 
+In Rust the idea of a virtual environment, as used in Python, is meaningless. Artefacts are compiled using the dependencies requested in `cargo.toml`, there is a cache of "crates" (the Rust name for a binary or library) but they are only used for exact version matches.
 
 ## Project Layout
 
@@ -31,7 +31,7 @@ The `cargo.toml` file sits in the root of the project. Typically there will be t
 - `src` - to contain project source Rust files
 - `tests` - to contain project test Rust files
 
-And once the package is built there will be a `target` directory. Users can choose to create `benchmark` and `examples` directories for benchmarks and examples. 
+And once the package is built there will be a `target` directory. Users can choose to create `benchmark` and `examples` directories for benchmarks and examples. Documentation built using rustdoc ends up in a subdirectory of the `target` directory.
 
 
 ## Testing
