@@ -2,7 +2,23 @@
 
 ## About
 
-This GitHub repo accompanies a [blog post]() which describes the tooling ecosystem for Rust. This repo provides the technical details in a concise form to accompany the more discussive blog post.
+This GitHub repo accompanies a [blog post]() which describes the tooling ecosystem for Rust. This repo provides the technical details in a concise form to accompany the more discussive blog post. The application created is a simple word count tool, invoked with:
+
+```
+cargo run -- tests/fixtures/word_count_test_file.txt
+```
+
+where `tests/fixtures/word_count_test_file.txt` is the path to the file on which to count words. The wordcount binary can be installed as a commandline tool with:
+
+```
+cargo install --path .
+```
+
+And then invoked with:
+
+```
+ wordcount_cli tests/fixtures/word_count_test_file.txt
+```
 
 ## Rust installation
 
@@ -46,13 +62,17 @@ Formatting and linting are carried out using tools typically installed by defaul
 
 ## Documentation Generation
 
+HTML format documentation can be generated using the built-in `rustdoc` tool which can be invoked using `cargo`:
+
+`cargo doc --open`
+
+This compiles documentation from function comments marked `///` or `!//` for module level documentation.
+
+
 ## Git Bash
 
-A `Makefile` is included in this repository which has targets for installing the package, running tests, running the linters and 
-building the documentation. For Git Bash I needed to install `make` using the chocolatey package manager (`choco install make`).
-
+Although I develop on Windows I use the Git Bash prompt. For other languages it is sometimes useful to have a `make` file to invoke tools but for Rust `cargo` is sufficiently functional for it not to be required. 
 
 ## Visual Studio Code
-As a personal choice, I use Visual Studio Code for software development. 
+As a personal choice, I use Visual Studio Code for software development. There is a [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer) which supports development in Rust. 
 
-The configuration used for this project for Code is found in the `.vscode` directory of this repo.
