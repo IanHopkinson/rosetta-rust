@@ -6,8 +6,8 @@ use std::fs;
 pub fn run(file_path: &String) -> usize {
     let mut word_count = 0;
 
-    let contents =
-        fs::read_to_string(file_path).expect(&format!("File read failed for {:?}", file_path));
+    let contents = fs::read_to_string(file_path)
+        .unwrap_or_else(|_| panic!("File read failed for {:?}", file_path));
 
     for line in contents.lines() {
         let words: Vec<&str> = line.split(char::is_whitespace).collect();

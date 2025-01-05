@@ -17,7 +17,7 @@ cargo install --path .
 And then invoked with:
 
 ```
- wordcount_cli tests/fixtures/word_count_test_file.txt
+wordcount_cli tests/fixtures/word_count_test_file.txt
 ```
 
 ## Rust installation
@@ -29,16 +29,11 @@ Rust is installed using the `rustup` tool which can be found [here](https://www.
 
 Rust package management and building is done using the `cargo` tool, actually `cargo` does pretty much everything.
 
-A Rust package is configured using the `cargo.toml` file which has a dependencies section to indicate which packages the current project requires. During the build process the `cargo.lock` file is generated automatically and should be committed to source control. Although binaries and libraries can be created by directly invoking the rustc compiler usually they a compiled using the `cargo build` command. The `cargo.toml` file also includes a Rust "edition", new editions of Rust are released every 3 years and may contain breaking changes. However, a package is pinned to its initial version and cargo contains tools to help with migration between versions.
-
-
-## Virtual Environments
-
-In Rust the idea of a virtual environment, as used in Python, is meaningless. Artefacts are compiled using the dependencies requested in `cargo.toml`, there is a cache of "crates" (the Rust name for a binary or library) but they are only used for exact version matches.
+A Rust package is configured using the `cargo.toml` file which has a dependencies section to indicate which packages the current project requires. During the build process the `cargo.lock` file is generated automatically and should be committed to source control. Although binaries and libraries can be created by directly invoking the `rustc` compiler usually they a compiled using the `cargo build` command. The `cargo.toml` file also includes a Rust "edition", new editions of Rust are released every 3 years and may contain breaking changes. However, a package is pinned to its initial version and cargo contains tools to help with migration between versions.
 
 ## Project Layout
 
-New Rust projects are created using `cargo new [project-name] --lib` or `cargo new [project-name] --bin`, this creates a skeleton project layout and initialises a git repo. 
+New Rust projects are created using `cargo new [project-name] --lib` or `cargo new [project-name] --bin`, this creates a skeleton project layout and initialises a Git repo. This repo contains both a binary and a library Rust file so the `cargo.toml` is modified to accomodate this.
 
 The full layout can be seen [here](https://doc.rust-lang.org/cargo/guide/project-layout.html)
 
@@ -52,6 +47,7 @@ And once the package is built there will be a `target` directory. Users can choo
 
 ## Testing
 
+This repo contains unit tests and doctests.
 Typically developers will add tests to library code files, as illustrated in the example `lib.rs` provided when a project is initialized with `cargo new --lib`. In addition doctests can be added to module files, and separate integration tests can be added to the `tests` directory in the root of the project.
 
 All three types of tests can be discovered and run using `cargo test`.
