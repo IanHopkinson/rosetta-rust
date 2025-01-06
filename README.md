@@ -2,7 +2,7 @@
 
 ## About
 
-This GitHub repo accompanies a [blog post]() which describes the tooling ecosystem for Rust. This repo provides the technical details in a concise form to accompany the more discussive blog post. The application created is a simple word count tool, invoked with:
+This GitHub repo accompanies a [blog post](https://ianhopkinson.org.uk/2025/01/rosetta-stone-rust/) which describes the tooling ecosystem for Rust. This repo provides the technical details in a concise form to accompany the more discussive blog post. The application created is a simple word count tool, invoked with:
 
 ```
 cargo run -- tests/fixtures/word_count_test_file.txt
@@ -47,14 +47,17 @@ And once the package is built there will be a `target` directory. Users can choo
 
 ## Testing
 
-This repo contains unit tests and doctests.
-Typically developers will add tests to library code files, as illustrated in the example `lib.rs` provided when a project is initialized with `cargo new --lib`. In addition doctests can be added to module files, and separate integration tests can be added to the `tests` directory in the root of the project.
+This repo contains unit tests, doctests and an integration test which can be run with:
 
-All three types of tests can be discovered and run using `cargo test`.
+```
+cargo test
+```
 
 ## Linting and formatting tools
 
 Formatting and linting are carried out using tools typically installed by default with `rustup`; formating with `rustfmt` and linting with `clippy`. These are invoked with using `cargo fmt` and `cargo clippy` respectively. `rustfmt` is configured using a configuration file `rustfmt.toml` or `.rustfmt.toml` whose contents are described [here](https://rust-lang.github.io/rustfmt/?version=v1.6.0&search=) although it will work without configuration. Similarly `clippy` is configured with files like `clippy.toml` or `.clippy.toml` described [here](https://doc.rust-lang.org/clippy/configuration.html). Both tools work pretty well using default configuration.
+
+Since I was using Visual Code this `clippy` and `rustfmt` were run automatically in the background.
 
 ## Documentation Generation
 
@@ -64,11 +67,10 @@ HTML format documentation can be generated using the built-in `rustdoc` tool whi
 
 This compiles documentation from function comments marked `///` or `!//` for module level documentation.
 
-
 ## Git Bash
 
 Although I develop on Windows I use the Git Bash prompt. For other languages it is sometimes useful to have a `make` file to invoke tools but for Rust `cargo` is sufficiently functional for it not to be required. 
 
 ## Visual Studio Code
-As a personal choice, I use Visual Studio Code for software development. There is a [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer) which supports development in Rust. 
+As a personal choice, I use Visual Studio Code for software development. There is a [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer) which supports development in Rust. The settings I used for this project can be found in `.vscode/settings.json` the only changes are to explicitly use `clippy` for linting and show tests in the test explorer.
 
